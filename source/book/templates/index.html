@@ -5,16 +5,15 @@
 
 
     {% for article in articles %}
-        <div class="card my-3" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ article.status }}</h5>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ article.name }}</h6>
+        <div class="card my-3 w-50 " style="width: 18rem;">
+            <div class="card-body ">
+                <h5 class="card-title text-nowrap mb-2 text-body-secondary d-flex justify-content-between">{{ article.name }}   ({{ article.email }})
+                    <div class="d-flex justify-content-end">
+                        <a href="#"><i class="bi bi-pencil-square "></i></a>
+                        <a href="#" ><i class="bi bi-file-earmark-minus "></i></a>
+                    </div>
+                    </h5>
                 <p class="card-text">{{ article.text }}</p>
-                <p class="card-text">{{ article.email }}</p>
-                <p class="card-text">{{ article.created_at }}</p>
-                <p class="card-text">{{ article.updated_at }}</p>
-                <a href="#" class="card-link" ><i class="bi bi-pencil-square"></i></a>
-                <a href="#" class="card-link"><i class="bi bi-file-earmark-minus"></i></a>
             </div>
         </div>
 
