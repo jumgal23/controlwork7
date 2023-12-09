@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from book.models import Article
 from book.forms import ArticleForm
+from django.utils import timezone
 
 
 def index_view(request):
-    articles = Article.objects.all()
+    articles = Article.objects.filter(status="active").order_by('-created_at')
     return render(request, 'index.html', {'articles': articles})
 
 
@@ -42,6 +43,7 @@ def article_update_view(request, pk):
             article.name = form.cleaned_data.get('name')
             article.email = form.cleaned_data.get('email')
             article.text = form.cleaned_data.get('text')
+            article.updated_at = timezone.now()
             article.save()
             return redirect('index',)
         else:
