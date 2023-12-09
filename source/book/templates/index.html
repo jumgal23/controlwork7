@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Articles</h1>
+
+
+    {% for article in articles %}
+        <div class="card my-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.status }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ article.name }}</h6>
+                <p class="card-text">{{ article.text }}</p>
+                <p class="card-text">{{ article.email }}</p>
+                <p class="card-text">{{ article.created_at }}</p>
+                <p class="card-text">{{ article.updated_at }}</p>
+                <a href="#" class="card-link" ><i class="bi bi-pencil-square"></i></a>
+                <a href="#" class="card-link"><i class="bi bi-file-earmark-minus"></i></a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
